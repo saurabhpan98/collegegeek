@@ -13,9 +13,10 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+
+import NoDataFoundImage from '../images/no_data_found.svg';
 
 
 function TabPanel(props) {
@@ -60,6 +61,10 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  noDataFound: {
+    maxWidth: 200,
+    maxHeight: 200,
+  }
 }));
 
 const ScrollableTabsButtonAuto = (props) =>{
@@ -106,7 +111,7 @@ const ScrollableTabsButtonAuto = (props) =>{
           </AppBar>
           <TabPanel value={value} index={0}>
             <FormControl className={classes.formControl} style={{marginBottom: 20}}>
-              <InputLabel id="demo-simple-select-label">Semester</InputLabel>
+              <InputLabel id="demo-simple-select-label">Semester type</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -117,22 +122,22 @@ const ScrollableTabsButtonAuto = (props) =>{
                 <MenuItem value={'endsem'}>Endsem</MenuItem>
               </Select>
             </FormControl>
-            <Papers currentSubject = {currentSubject} />
+            <Papers currentSubject = {currentSubject} semester = {semester} />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Notes currentSubject = {currentSubject} />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            Item Three
+            <img src = {NoDataFoundImage} alt = "" className={classes.noDataFound} />
           </TabPanel>
           <TabPanel value={value} index={3}>
-            Item Four
+            <img src = {NoDataFoundImage} alt = "" className={classes.noDataFound} />
           </TabPanel>
           <TabPanel value={value} index={4}>
-            Item Five
+            <img src = {NoDataFoundImage} alt = "" className={classes.noDataFound} />
           </TabPanel>
           <TabPanel value={value} index={5}>
-            Item Six
+            <img src = {NoDataFoundImage} alt = "" className={classes.noDataFound} />
           </TabPanel>
         </div>
       </Container>

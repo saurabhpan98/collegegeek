@@ -61,9 +61,8 @@ const NotesNavbar = (props) =>{
   };
 
   const replaceSubject = (e) =>{
-    //alert(e.target.textContent)
-    const newSubject = {
-      id: e.target.textContent,
+    const newSubject = {              //new clicked subject
+      id: "",
       subjectName: e.target.textContent
     };
     props.getSubject(newSubject);
@@ -83,10 +82,10 @@ const NotesNavbar = (props) =>{
           </Typography>
           <Box style={{display: 'flex', flexDirection: 'row', marginBottom: 20}}>
             <Button size="small" style={{margin: '0 5px'}} variant="contained" color="primary" disableElevation>
-              {props.year} Year
+              Year - {props.year}
             </Button>
             <Button size="small" style={{margin: '0 5px'}} variant="contained" color="primary" disableElevation>
-              {props.semester} Sem
+              Sem - {props.semester}
             </Button>
           </Box>
         </ListItem>

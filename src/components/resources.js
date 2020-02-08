@@ -10,7 +10,34 @@ import IconButton from '@material-ui/core/IconButton';
 
 class ResourcesPage extends Component{
   state = {
-    colleges: [],
+    colleges: [
+      {id: 1, collegeName: 'Delhi Technological University',
+        collegeType: ["Engineering", "MBA", "B-Design"],
+        degreeType : ["B.Tech.", "M.Tech.", "MBA", "B.Design"],
+        subjectNum : 0,
+        notesNum : 0,
+        assignmentNum : 0,
+        booksNum  : 0,
+        projectNum : 0,
+        youtubeNum : 0,
+        years : [4,2,2,4],
+        semester : [8,4,4,8],
+        branchOne : ["Computer Engineering","Information Technology","Civil Engineering","Mechanical Engineering"]
+      },
+      {id: 2, collegeName: 'Indira Gandhi Delhi Technological University for Women',
+        collegeType: ["Engineering", "MCA"],
+        degreeType : ["B.Tech.", "M.Tech.", "MCA"],
+        subjectNum : 0,
+        notesNum : 0,
+        assignmentNum : 0,
+        booksNum  : 0,
+        projectNum : 0,
+        youtubeNum : 0,
+        years : [4,2,2],
+        semester : [8,4,4],
+        branchOne : ["Computer Science", "Information Technology", "Civil Engineering", "Mechanical Engineering"]
+      }
+    ],
     defaultCollege: '',
     branches: [],
     years: [],
@@ -18,7 +45,6 @@ class ResourcesPage extends Component{
   }
 
   componentDidMount() {
-
     //getting local storage
     const formDetails = JSON.parse(localStorage.getItem('formDetails'));
 
@@ -27,24 +53,24 @@ class ResourcesPage extends Component{
     }
     else if(localStorage.getItem('formDetails') && formDetails.branch == ''){
       console.log(formDetails)
+      this.state.colleges.forEach(college =>{
+        if(college.collegeName == formDetails.collegeName){
+
+          var years = [];
+          for(var i = 0; i<college.years[0]; i++)
+            years.push(i+1);
+
+          this.setState({
+            defaultCollege: college.collegeName,
+            branches: college.branchOne,
+            years: years
+          });
+        }
+      })
     }
     else{
-      //do nothing
-    }
 
-    firebase.database().ref("colleges").once("value").then(snapShot =>{
-      var colleges = [];
-      snapShot.forEach(item =>{
-        colleges.push({
-          id: item.key,
-          ...item.val()
-        })
-      })
-      this.setState({
-        colleges: colleges
-      })
-    })
-    console.log(this.state.colleges)
+    }
   }
 
   closeSnackbar = (event, reason) => {
@@ -91,10 +117,12 @@ class ResourcesPage extends Component{
     if(selectedCollege.collegeName != ''){
       const colleges = this.state.colleges;
       var currentCollege;
+
+      //searching for selected college in state array
       for(var i = 0; i<this.state.colleges.length; i++){
         if(colleges[i].collegeName == selectedCollege.collegeName){
-          currentCollege = colleges[i];
-          break;
+          currentCollege = colleges[i];  //saving selected college in
+          break;                         //new object
         }
       }
 

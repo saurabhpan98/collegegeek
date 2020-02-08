@@ -5,9 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import '../config';
-import * as firebase from 'firebase';
-
 class Notes extends Component{
   state = {
     collegeId: '',
@@ -15,39 +12,91 @@ class Notes extends Component{
     branch: '',
     year: '',
     semester: '',
-    currentSubject: '',
-    subjects: []
+    subjects: [],
+    fetchedSubjects: [
+      {
+        id: 1,
+        collegeId : 1,
+        subjectName : "Compiler Design",
+        subjectCode : "CO-302",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 6
+      },
+      {
+        id: 2,
+        collegeId : 1,
+        subjectName : "Artificial Intelligence",
+        subjectCode : "CO-304",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 6
+      },
+      {
+        id: 3,
+        collegeId : 1,
+        subjectName : "Computer Networks",
+        subjectCode : "CO-306",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 6
+      },
+      {
+        id: 4,
+        collegeId : 1,
+        subjectName : "Software Engineering",
+        subjectCode : "CO-301",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 5
+      },
+      {
+        id: 5,
+        collegeId : 1,
+        subjectName : "Theory of Computation",
+        subjectCode : "CO-303",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 5
+      },
+    ],
+    currentSubject: ''
   };
 
   componentDidMount() {
     const formDetails = JSON.parse(localStorage.getItem('formDetails'));
 
     if (localStorage.getItem('formDetails')) {
-      console.log(formDetails)
+      const gotId = formDetails.collegeId;
+      const gotName = formDetails.collegeName;
+      const gotBranch = formDetails.branch;
+      const gotYear = formDetails.year;
+      const gotSemester = formDetails.semester;
+
       this.setState({
-        collegeId: formDetails.collegeId,
-        collegeName: formDetails.collegeName,
-        branch: formDetails.branch,
-        year: formDetails.year,
-        semester: formDetails.semester
+        collegeId: gotId,
+        collegeName: gotName,
+        branch: gotBranch,
+        year: gotYear,
+        semester: gotSemester
       });
 
-      firebase.database().ref("subjects").once("value").then(snapShot =>{
-        var subjects = [];
-        snapShot.forEach(item =>{
-          if(item.val().year == formDetails.year && item.val().semester == formDetails.semester){
-            subjects.push({
-              id: item.key,
-              ...item.val()
-            });
-          }
-        })
-
+      var subjects = [];
+      this.state.fetchedSubjects.forEach(subject =>{
+        if(subject.branch == gotBranch && subject.year == gotYear && subject.semester == gotSemester)
+          subjects.push(subject);
+      })
+      if(subjects.length){
         this.setState({
           subjects: subjects,
-          currentSubject: subjects[0].subjectName
+          currentSubject: subjects[0]
         })
-      })
+      }
     }
     else {
       this.props.history.push('/resources');
@@ -55,10 +104,13 @@ class Notes extends Component{
   }
 
 
-  getSubject = (subject) =>{
-    this.setState({
-      currentSubject: subject.subjectName
-    });
+  getSubject = (clickedSubject) =>{
+    this.state.subjects.forEach(subject =>{
+      if(subject.subjectName == clickedSubject.subjectName)
+        this.setState({
+          currentSubject: subject,
+        });
+    })
   }
 
   render(){
@@ -69,7 +121,7 @@ class Notes extends Component{
           <CssBaseline />
           <Container maxWidth="lg">
             <Typography variant="h4" style={{marginBottom: 20, marginTop: 30}}>
-              {this.state.currentSubject}
+              {this.state.currentSubject.subjectName}
             </Typography>
           </Container>
         </React.Fragment>

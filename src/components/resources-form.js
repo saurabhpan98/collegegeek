@@ -47,7 +47,10 @@ const ResourcesForm = (props) => {
 
   const handleCollegeChange = event => {
     setCollege(event.target.value);
-    props.getCollege({id: 1, collegeName: event.target.value});
+    setBranch('');
+    setYear('');
+    setSemester('')
+    props.getCollege({collegeName: event.target.value});
   };
 
   const handleBranchChange = event => {
@@ -56,10 +59,11 @@ const ResourcesForm = (props) => {
 
   const handleYearChange = event => {
     setYear(event.target.value);
+    setSemester('');
   };
 
   const handleSemesterChange = event => {
-    setSemester(event.target.value)
+    setSemester(event.target.value);
   };
 
   //My work starts -------------------------------------
@@ -179,7 +183,7 @@ const ResourcesForm = (props) => {
                       </MenuItem>
                       { years.map(year =>{
                           return(
-                            <MenuItem value={year}>{year} Year</MenuItem>
+                            <MenuItem value={year} key = {year}>{year} Year</MenuItem>
                           )
                         })
                       }

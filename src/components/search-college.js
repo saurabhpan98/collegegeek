@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -19,10 +20,32 @@ import CloseIcon from '@material-ui/icons/Close';
 class SearchCollege extends Component{
   state = {
     colleges: [
-      {id: 1, collegeName: 'Delhi Technological University'},
-      {id: 2, collegeName: 'Indira Gandhi Delhi Technical University for Women'},
-      {id: 3, collegeName: 'Netaji Subhash Institute of Technology'},
-      {id: 4, collegeName: 'Indian Institute of Information Technology Delhi'},
+      {id: 1, collegeName: 'Delhi Technological University',
+        collegeType: ["Engineering", "MBA", "B-Design"],
+        degreeType : ["B.Tech.", "M.Tech.", "MBA", "B.Design"],
+        subjectNum : 0,
+        notesNum : 0,
+        assignmentNum : 0,
+        booksNum  : 0,
+        projectNum : 0,
+        youtubeNum : 0,
+        years : [4,2,2,4],
+        semester : [8,4,4,8],
+        branchOne : ["Computer Engineering","Information Technology","Civil Engineering","Mechanical Engineering"]
+      },
+      {id: 2, collegeName: 'Indira Gandhi Delhi Technological University for Women',
+        collegeType: ["Engineering", "MCA"],
+        degreeType : ["B.Tech.", "M.Tech.", "MCA"],
+        subjectNum : 0,
+        notesNum : 0,
+        assignmentNum : 0,
+        booksNum  : 0,
+        projectNum : 0,
+        youtubeNum : 0,
+        years : [4,2,2],
+        semester : [8,4,4],
+        branchOne : ["Computer Science", "Information Technology", "Civil Engineering", "Mechanical Engineering"]
+      }
     ],
     open: false,
   };
@@ -115,7 +138,7 @@ class SearchCollege extends Component{
 
   render(){
     return(
-      <div class="SearchCollege">
+      <div className="SearchCollege">
         <React.Fragment>
           <CssBaseline />
             <Container maxWidth="lg" style={{display: 'flex', flexDirection: 'row', paddingTop: 10, width: '100%'}}>
