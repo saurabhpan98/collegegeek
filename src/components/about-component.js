@@ -15,7 +15,6 @@ import NotesImage from '../images/Notes.svg';
 import YoutubeImage from '../images/Youtube.svg';
 import ProjectsImage from '../images/Projects.svg';
 import AssignmentsImage from '../images/Assignments.svg';
-import SaurabhImage from '../images/Saurabh image.png';
 
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
