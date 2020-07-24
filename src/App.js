@@ -13,6 +13,8 @@ import About from './components/about';
 import Faq from './components/faq';
 import SearchCollege from './components/search-college';
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 class App extends Component{
   state = {
     collegeName: '',
@@ -34,7 +36,19 @@ class App extends Component{
   }
 
   render(){
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#1976d2'
+        },
+        secondary: {
+          main: '#f50057'
+        }
+      },
+    });
+
     return(
+      <MuiThemeProvider theme={theme}>
       <Router>
         <Route path='/home' component={Home} />
         <Route path='/about' component={About} />
@@ -44,6 +58,7 @@ class App extends Component{
         <Route path='/faq' component={Faq} />
         <Route path='/search-college' component={SearchCollege} />
       </Router>
+      </MuiThemeProvider>
     )
   }
 }

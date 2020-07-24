@@ -22,7 +22,7 @@ class ResourcesPage extends Component{
         youtubeNum : 0,
         years : [4,2,2,4],
         semester : [8,4,4,8],
-        branchOne : ["Computer Engineering","Information Technology","Civil Engineering","Mechanical Engineering"]
+        branchOne : ["Computer Engineering","Information Technology","Civil Engineering","Mechanical Engineering","Electronic & Communication Engineering", "Electrical Engineering", "Production & Industrial Engineering", "Environmental Engineering", "Polymer Science & Chemical Engineering", "Bio-Technology", "Software Engineering", "Electrical & Electronics Engineering"]
       },
       {id: 2, collegeName: 'Indira Gandhi Delhi Technological University for Women',
         collegeType: ["Engineering", "MCA"],

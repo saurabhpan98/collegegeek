@@ -85,19 +85,13 @@ const SendQuery = (props) =>{
             </Typography>
             <Grid container spacing = {2}>
               <Grid item xs={12} sm={12} lg={12}>
-                <Paper className={classes.paper}>
                 Phone : 8527514658
-                </Paper>
               </Grid>
               <Grid item xs={12} sm={12} lg={12}>
-                <Paper className={classes.paper}>
                 Email : collegegeekin@gmail.com
-                </Paper>
               </Grid>
               <Grid item xs={12} sm={12} lg={12}>
-                <Paper className={classes.paper}>
-                Address: DTU, Delhi
-                </Paper>
+                Address: DTU, Delhi 
               </Grid>
             </Grid>
             </Paper>

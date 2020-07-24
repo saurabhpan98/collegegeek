@@ -4,6 +4,7 @@ import NotesNavbar from './notes-navbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
+//import * as firebase from 'firebase';
 
 class Notes extends Component{
   state = {
@@ -47,6 +48,16 @@ class Notes extends Component{
       {
         id: 4,
         collegeId : 1,
+        subjectName : "Technical Communications",
+        subjectCode : "HU-302",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 6
+      },
+      {
+        id: 5,
+        collegeId : 1,
         subjectName : "Software Engineering",
         subjectCode : "CO-301",
         degreeType : "B.Tech",
@@ -55,9 +66,19 @@ class Notes extends Component{
         semester : 5
       },
       {
-        id: 5,
+        id: 6,
         collegeId : 1,
         subjectName : "Theory of Computation",
+        subjectCode : "CO-303",
+        degreeType : "B.Tech",
+        branch : "Computer Engineering",
+        year : 3,
+        semester : 5
+      },
+      {
+        id: 7,
+        collegeId : 1,
+        subjectName : "Professional Ethics & Human Values",
         subjectCode : "CO-303",
         degreeType : "B.Tech",
         branch : "Computer Engineering",
@@ -85,6 +106,26 @@ class Notes extends Component{
         year: gotYear,
         semester: gotSemester
       });
+
+      //retrieving data from firebase
+      /*var ref = firebase.database().ref("subjects");
+      ref.on("value", function(snapshot) {
+        let subArr = [];
+        let subjects = snapshot.val();
+        let keys = Object.keys(subjects);
+        for(let i = 0; i < keys.length; i++){
+          let k = keys[i];
+          if(subjects[k].semester == gotSemester && subjects[k].year == gotYear && subjects[k].branch == gotBranch){
+            subArr.push(subjects[k]);
+          }
+        }
+
+        this.setState({
+          fetchedSubjects: subArr
+        })
+      }, function (error) {
+        console.log("Error: " + error.code);
+      });*/
 
       var subjects = [];
       this.state.fetchedSubjects.forEach(subject =>{
