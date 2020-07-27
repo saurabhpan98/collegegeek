@@ -24,6 +24,8 @@ import LoginIcon from '@material-ui/icons/VpnKey';
 import SignupIcon from '@material-ui/icons/LockOpen';
 import AboutIcon from '@material-ui/icons/AssignmentInd';
 
+import Logo from '../images/company-logo.png';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -138,7 +140,7 @@ export default function Navbar() {
             {sideList('left')}
           </Drawer>
           <Typography variant="h6" className={classes.title}>
-            <Link to = "/home" style={{color: 'white', textDecoration: 'none'}}>CollegeGeek</Link>
+            <Link to = "/home" style={{color: 'white', textDecoration: 'none'}}><img src = {Logo} style={{height: "1.2em", width: '1.2em', marginBottom: '-2px', marginRight: 4}}/>CollegeGeek</Link>
           </Typography>
           <div id="navbar-items">
             <Button>

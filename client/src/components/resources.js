@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Resources from './resources-form';
 import Navbar from './navbar';
-import '../config';
-import * as firebase from 'firebase';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';

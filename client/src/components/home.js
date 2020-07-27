@@ -13,6 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import BackgroundImage from '../images/bg.png';
 
+
 class Home extends Component{
   componentDidMount(){
     document.title = "CollegeGeek";
