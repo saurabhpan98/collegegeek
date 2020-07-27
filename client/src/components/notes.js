@@ -52,7 +52,7 @@ class Notes extends Component{
         year: gotYear,
         semester: gotSemester   
       };
-      axios.post('http://localhost:5000/get-subjects', object)
+      axios.post('/get-subjects', object)
         .then(res =>{
           this.setState({
             subjects: res.data.subjects,
@@ -64,7 +64,7 @@ class Notes extends Component{
         })
 
       //getting elective subjects
-      axios.post('http://localhost:5000/get-electives', object)
+      axios.post('/get-electives', object)
         .then(res =>{
           this.setState({
             electives: res.data.electives,
@@ -75,7 +75,7 @@ class Notes extends Component{
         })
 
       //getting all papers 
-      axios.post('http://localhost:5000/get-papers', object)
+      axios.post('/get-papers', object)
         .then(res =>{
           this.setState({
             papers: res.data.papers
@@ -86,7 +86,7 @@ class Notes extends Component{
         })
       
       //getting all notes 
-      axios.post('http://localhost:5000/get-notes', object)
+      axios.post('/get-notes', object)
         .then(res =>{
           this.setState({
             notes: res.data.notes
@@ -97,7 +97,7 @@ class Notes extends Component{
         })
       
       //getting all books 
-      axios.post('http://localhost:5000/get-books', object)
+      axios.post('/get-books', object)
         .then(res =>{
           this.setState({
             books: res.data.books
@@ -108,7 +108,7 @@ class Notes extends Component{
         })
 
       //getting all youtube videos 
-      axios.post('http://localhost:5000/get-youtubes', object)
+      axios.post('/get-youtubes', object)
         .then(res =>{
           this.setState({
             youtubes: res.data.youtubes
@@ -119,7 +119,7 @@ class Notes extends Component{
         })
       
       //getting all projects 
-      axios.post('http://localhost:5000/get-projects', object)
+      axios.post('/get-projects', object)
         .then(res =>{
           this.setState({
             projects: res.data.projects
@@ -130,7 +130,7 @@ class Notes extends Component{
         })
       
       //getting all assignmets 
-      axios.post('http://localhost:5000/get-assignments', object)
+      axios.post('/get-assignments', object)
         .then(res =>{
           this.setState({
             assignments: res.data.assignments
