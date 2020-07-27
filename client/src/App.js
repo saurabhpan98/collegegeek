@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './App.css';
-import './config';
-import * as firebase from 'firebase';
 
 import Home from './components/home';
 import ResourcesPage from './components/resources';
@@ -22,18 +20,6 @@ class App extends Component{
     year: '',
     semester: ''
   };
-
-  componentDidMount(){
-    /*firebase.database().ref("subjects").push({
-      collegeId : "-M-5D9qsM3ulFs1G10cy",
-      subjectName : "Professional Ethics & Human Values",
-      subjectCode : "HU-303",
-      degreeType : "B.Tech",
-      branch : "Computer Engineering",
-      year : 3,
-      semester : 5
-    })*/
-  }
 
   render(){
     const theme = createMuiTheme({
