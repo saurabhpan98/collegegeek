@@ -8,3 +8,8 @@ A website for college students where they can find all resources like - Papers, 
 4. Youtube playlist 
 5. Projects 
 6. Assignments
+
+## Target users 
+1. College students 
+2. College faculties 
+3. Other enthusiastic users 
