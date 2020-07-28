@@ -3,7 +3,7 @@ const router = express.Router();
 const Assignment = require('../models/assignments-model');
 
 router.post('/get-assignments', (req, res) =>{
-    Assignment.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester})
+    Assignment.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester, atype: "regular"})
         .then(assignments =>{
             let assignmentsArray = assignments; 
             Assignment.find({collegeId: req.body.collegeId, atype: "elective", year: req.body.year, semester: req.body.semester})

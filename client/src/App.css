@@ -114,6 +114,10 @@
   margin-left: 20px;
 }
 
+#contact-form-grid{
+  margin-top: 50px;
+}
+
 @media only screen and (max-width: 600px) {
   #menuIcon{
     display: block; 
@@ -123,5 +127,8 @@
   }
   .faq-search-div{
     background: none; 
+  }
+  #contact-form-grid{
+    margin-top: 5px;
   }
 }

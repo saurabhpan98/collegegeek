@@ -3,7 +3,7 @@ const router = express.Router();
 const Notes = require('../models/notes-model');
 
 router.post('/get-notes', (req, res) =>{
-    Notes.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester})
+    Notes.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester, ntype: "regular"})
         .then(notes =>{
             let notesArray = notes; 
             Notes.find({collegeId: req.body.collegeId, ntype: "elective", year: req.body.year, semester: req.body.semester})

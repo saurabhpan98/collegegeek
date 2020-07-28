@@ -4,7 +4,7 @@ const Paper = require('../models/paper-model');
 
 router.post('/get-papers', (req, res) =>{
     //console.log(req.body)
-    Paper.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester})
+    Paper.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester, ptype: "regular"})
         .then(papers =>{
             let paperArray = papers; 
             Paper.find({collegeId: req.body.collegeId, ptype: "elective", year: req.body.year, semester: req.body.semester})

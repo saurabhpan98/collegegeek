@@ -135,7 +135,7 @@ const NotesNavbar = (props) =>{
       </List>
       <Divider />
       <List>
-        <Link to="/home" className="nav-links" key={'Home'}>
+        <Link to="/" className="nav-links" key={'Home'}>
           <ListItem button>
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary={'Home'} />
@@ -215,7 +215,7 @@ const NotesNavbar = (props) =>{
             {sideList('left')}
           </Drawer>
           <Typography variant="h6" className={classes.title}>
-            <Link to = "/home" style={{color: 'white', textDecoration: 'none'}}>CollegeGeek</Link>
+            <Link to = "/" style={{color: 'white', textDecoration: 'none'}}>CollegeGeek</Link>
           </Typography>
         </Toolbar>
       </AppBar>

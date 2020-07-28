@@ -40,7 +40,7 @@ const Footer = () =>{
               <Link to="/linkedin" style={{color: 'white'}}>
                 <LinkedInIcon style={{fontSize: '2.5rem', marginRight: 20}} />
               </Link>
-              <Link to="/twitter" style={{color: 'white'}}>
+              <Link to="twitter.com" style={{color: 'white'}}>
                 <TwitterIcon style={{fontSize: '2.5rem', marginRight: 20}} />
               </Link>
               <Link to="/instagram" style={{color: 'white'}}>

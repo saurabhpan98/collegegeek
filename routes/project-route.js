@@ -3,7 +3,7 @@ const router = express.Router();
 const Project = require('../models/projects-model');
 
 router.post('/get-projects', (req, res) =>{
-    Project.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester})
+    Project.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester, ptype: "regular"})
         .then(projects =>{
             let projectsArray = projects; 
             Project.find({collegeId: req.body.collegeId, ptype: "elective", year: req.body.year, semester: req.body.semester})

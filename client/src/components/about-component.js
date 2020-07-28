@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +10,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
 
+import AboutUsImage from '../images/about us.svg';
 import BooksImage from '../images/Books.svg';
 import PapersImage from '../images/Question Papers.svg';
 import NotesImage from '../images/Notes.svg';
@@ -16,14 +20,31 @@ import YoutubeImage from '../images/Youtube.svg';
 import ProjectsImage from '../images/Projects.svg';
 import AssignmentsImage from '../images/Assignments.svg';
 
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
-
 const AboutComponent = () =>{
   return(
     <React.Fragment>
       <CssBaseline />
+      <Container maxWidth = "lg" style={{height: '90vh', paddingTop: 50}}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} lg={6}>
+            <Typography variant="h2">
+              About Us
+            </Typography>
+            <Typography variant="body1" style={{maxWidth: 500, marginTop: 20, marginBottom: 30, fontSize: '1.3em'}}>
+              We're the team of coders working hard to connect colleges and 
+              gather resources as much as we can with the help of engineering students. 
+            </Typography>
+            <Link to = "/resources" style={{textDecoration: 'none'}}>
+              <Button variant="outlined" color="secondary">
+                Explore now
+              </Button>
+            </Link>
+          </Grid>
+          <Grid item xs={12} sm={6} lg={6}>
+            <img src = {AboutUsImage} height="90%" width="90%" alt="" />
+          </Grid>
+        </Grid>
+      </Container>
       <Container maxWidth="lg" style={{paddingBottom: 80}}>
         <Typography variant="h3" style={{marginBottom: 20, marginTop: 40, textAlign: 'center'}}>
           You're in good company

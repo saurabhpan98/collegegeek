@@ -4,7 +4,7 @@ const Youtube = require('../models/youtube-model');
 
 router.post('/get-youtubes', (req, res) =>{
     //console.log(req.body)
-    Youtube.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester})
+    Youtube.find({collegeId: req.body.collegeId, branch: req.body.branch, year: req.body.year, semester: req.body.semester, ytype: "regular"})
         .then(youtubes =>{
             let youtubesArray = youtubes; 
             Youtube.find({collegeId: req.body.collegeId, ytype: "elective", year: req.body.year, semester: req.body.semester})

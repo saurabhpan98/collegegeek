@@ -74,7 +74,7 @@ export default function Navbar() {
             CollegeGeek
           </Typography>
         </ListItem>
-        <Link to="/home" className="nav-links" key={'Home'}>
+        <Link to="/" className="nav-links" key={'Home'}>
           <ListItem button>
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary={'Home'} />
@@ -140,11 +140,11 @@ export default function Navbar() {
             {sideList('left')}
           </Drawer>
           <Typography variant="h6" className={classes.title}>
-            <Link to = "/home" style={{color: 'white', textDecoration: 'none'}}><img src = {Logo} style={{height: "1.2em", width: '1.2em', marginBottom: '-2px', marginRight: 4}}/>CollegeGeek</Link>
+            <Link to = "/" style={{color: 'white', textDecoration: 'none'}}><img src = {Logo} style={{height: "1.2em", width: '1.2em', marginBottom: '-2px', marginRight: 4}}/>CollegeGeek</Link>
           </Typography>
           <div id="navbar-items">
             <Button>
-              <Link to = "/home" style={{color: 'white', textDecoration: 'none'}}>Home</Link>
+              <Link to = "/" style={{color: 'white', textDecoration: 'none'}}>Home</Link>
             </Button>
             <Button>
               <Link to = "/resources" style={{color: 'white', textDecoration: 'none'}}>Resources</Link>
